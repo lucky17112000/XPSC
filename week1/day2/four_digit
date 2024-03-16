@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define negInf INT_MIN
+#define linf LLONG_MAX
+#define pii pair<int, int>
+
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 5;
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+    int n;
+    cin >> n;
+    string con = to_string(n);
+    int sz = con.size();
+    int due = 4 - sz;
+    // cout << con.size() << " " << due << endl;
+    string ans;
+    for(int i = 0; i < due; ++i)ans+='0';
+    for(int i = 0; i < con.size(); ++i)ans+=con[i];
+   cout << ans<< endl;
+    return 0;
+}
