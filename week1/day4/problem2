@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define negInf INT_MIN
+#define linf LLONG_MAX
+#define pii pair<int, int>
+
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 5;
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+    ll n, m, tar;
+    cin >> n >> m >> tar;
+    ll ans = -1;
+    for (int i = 1; i <= 1005; ++i)
+    {
+        if (tar * i >= n and tar*i <= m)
+        {
+            ans = tar * i;
+            break;
+        }
+        else if (m < tar* i)
+            break;
+    }
+
+    cout << ans << endl;
+    return 0;
+}
