@@ -1,0 +1,109 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define negInf INT_MIN
+#define linf LLONG_MAX
+#define pii pair<int, int>
+
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 5;
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        ll n;
+        cin >> n;
+        vector<ll> arr(n);
+        for (int i = 0; i < n; ++i)
+            cin >> arr[i];
+        if (n == 1)
+            cout << "YES" << endl;
+        else
+        {
+            ll i = 0;
+            ll j = n - 1;
+            ll text1, text2;
+            bool flag = true;
+            while (i < j)
+            {
+                if (arr[i] != arr[j])
+                {
+                    flag = false;
+                    text1 = arr[i];
+                    text2 = arr[j];
+                    break;
+                }
+                ++i;
+                --j;
+            }
+            vector<ll> tex1(n), tex2(n);
+            ll text1_cnt = 0;
+            ll text2_cnt = 0;
+            if (flag == true)
+                cout << "YES" << endl;
+            else
+            {
+                for (int i = 0; i < n; ++i)
+                {
+                    if (arr[i] != text1)
+                    {
+                        tex1[text1_cnt] = arr[i];
+                        ++text1_cnt;
+                    }
+
+                    if (arr[i] != text2)
+                    {
+                        tex2[text2_cnt] = arr[i];
+                        ++text2_cnt;
+                    }
+                }
+
+                bool text11 = true;
+                bool text22 = true;
+                ll my_i = 0;
+                ll my_j = text1_cnt - 1;
+                while (my_i < my_j)
+                {
+                    if (tex1[my_i] != tex1[my_j])
+                    {
+                        text11 = false;
+                        break;
+                    }
+                    ++my_i;
+                    --my_j;
+                }
+                my_i = 0;
+                my_j = text2_cnt - 1;
+                while (my_i < my_j)
+                {
+                    if (tex2[my_i] != tex2[my_j])
+                    {
+                        text22 = false;
+                        break;
+                    }
+                    ++my_i;
+                    --my_j;
+                }
+                if (text11 == true or text22 == true)
+                    cout << "YES" << endl;
+                else
+                    cout << "NO" << endl;
+            } ///
+        }
+    }
+    return 0;
+}
