@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define strim stringstream
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+void hey_output()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
+using namespace std;
+const int N = 1e5 + 7;
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        set<int> s;
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            s.insert(x);
+        }
+        if ((n - s.size()) % 2 == 0)
+            cout << s.size() << endl;
+        else
+            cout << (s.size() - 1) << endl;
+    }
+
+    return 0;
+}
