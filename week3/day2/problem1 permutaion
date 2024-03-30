@@ -1,0 +1,115 @@
+/*
+███╗░░██╗███████╗██╗░░░██╗███████╗██████╗░  ░██████╗░██╗██╗░░░██╗███████╗
+████╗░██║██╔════╝██║░░░██║██╔════╝██╔══██╗  ██╔════╝░██║██║░░░██║██╔════╝
+██╔██╗██║█████╗░░╚██╗░██╔╝█████╗░░██████╔╝  ██║░░██╗░██║╚██╗░██╔╝█████╗░░
+██║╚████║██╔══╝░░░╚████╔╝░██╔══╝░░██╔══██╗  ██║░░╚██╗██║░╚████╔╝░██╔══╝░░
+██║░╚███║███████╗░░╚██╔╝░░███████╗██║░░██║  ╚██████╔╝██║░░╚██╔╝░░███████╗
+╚═╝░░╚══╝╚══════╝░░░╚═╝░░░╚══════╝╚═╝░░╚═╝  ░╚═════╝░╚═╝░░░╚═╝░░░╚══════╝
+
+██╗░░░██╗██████╗░██╗██╗██╗
+██║░░░██║██╔══██╗██║██║██║
+██║░░░██║██████╔╝██║██║██║
+██║░░░██║██╔═══╝░╚═╝╚═╝╚═╝
+╚██████╔╝██║░░░░░██╗██╗██╗
+░╚═════╝░╚═╝░░░░░╚═╝╚═╝╚═╝
+
+
+ ░▒▓██████▓▒░░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓██████████████▓▒░░▒▓█▓▒░▒▓███████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓████████▓▒░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+*/
+// Bismillah
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void solve()
+{
+    int n;
+    cin >> n;
+    int arr[n][n];
+    int my_max = negInf;
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n - 1; ++j)
+        {
+            cin >> arr[i][j];
+            my_max = max(my_max, arr[i][j]);
+        }
+    }
+
+    vector<int> freq(my_max + 1, 0);
+    for (int i = 0; i < n; ++i)
+    {
+        freq[arr[i][0]]++;
+    }
+
+    int cat = 0;
+    for (int i = 0; i <= my_max; ++i)
+    {
+        if (freq[i] == 1)
+        {
+            cat = i;
+            break;
+        }
+    }
+    int my_i, my_j;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr[i][0] == cat)
+        {
+            my_i = i;
+            break;
+        }
+    }
+    // cout << arr[my_i][0];
+    vector<int> ans;
+    // ans.push_back(arr[my_i + 1][0]);
+    if (my_i + 1 <= n - 1)
+        ans.push_back(arr[my_i + 1][0]);
+    else
+        ans.push_back(arr[my_i - 1][0]);
+    for (int i = 0; i < n - 1; ++i)
+        ans.push_back(arr[my_i][i]);
+
+    for (auto u : ans)
+        cout << u << " ";
+    cout << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
+// Alhamdulillah
