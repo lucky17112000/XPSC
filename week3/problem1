@@ -1,0 +1,114 @@
+/*
+███╗░░██╗███████╗██╗░░░██╗███████╗██████╗░  ░██████╗░██╗██╗░░░██╗███████╗
+████╗░██║██╔════╝██║░░░██║██╔════╝██╔══██╗  ██╔════╝░██║██║░░░██║██╔════╝
+██╔██╗██║█████╗░░╚██╗░██╔╝█████╗░░██████╔╝  ██║░░██╗░██║╚██╗░██╔╝█████╗░░
+██║╚████║██╔══╝░░░╚████╔╝░██╔══╝░░██╔══██╗  ██║░░╚██╗██║░╚████╔╝░██╔══╝░░
+██║░╚███║███████╗░░╚██╔╝░░███████╗██║░░██║  ╚██████╔╝██║░░╚██╔╝░░███████╗
+╚═╝░░╚══╝╚══════╝░░░╚═╝░░░╚══════╝╚═╝░░╚═╝  ░╚═════╝░╚═╝░░░╚═╝░░░╚══════╝
+
+██╗░░░██╗██████╗░██╗██╗██╗
+██║░░░██║██╔══██╗██║██║██║
+██║░░░██║██████╔╝██║██║██║
+██║░░░██║██╔═══╝░╚═╝╚═╝╚═╝
+╚██████╔╝██║░░░░░██╗██╗██╗
+░╚═════╝░╚═╝░░░░░╚═╝╚═╝╚═╝
+
+
+ ░▒▓██████▓▒░░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓██████████████▓▒░░▒▓█▓▒░▒▓███████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓████████▓▒░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+*/
+// Bismillah
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<ll, ll>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+bool cmp(pii a, pii b)
+{
+    return a.first - a.second > b.first - b.second;
+}
+void solve()
+{
+    ll n;
+    cin >> n;
+    string s;
+    cin >> s;
+    if (n == 1)
+    {
+        cout << 0 << endl;
+        return;
+    }
+    ll sum = 0;
+    for (ll i = 0; i < n; ++i)
+    {
+        if (s[i] == 'L')
+            sum += i;
+        else
+            sum += n - i - 1;
+    }
+    vector<pii> arr;
+    for (ll i = 0; i < n; ++i)
+    {
+        if (s[i] == 'L')
+        {
+            if (n - i - 1 > i)
+                arr.push_back({n - i - 1, i});
+        }
+        else
+        {
+            if (i > n - i - 1)
+                arr.push_back({i, n - i - 1});
+        }
+    }
+
+    sort(arr.begin(), arr.end(), cmp);
+    // for(auto u : arr)cout << u.first << " " << u.second<< endl;
+    ll cnt = 0;
+    vector<ll> ans(n + 1);
+    for (auto &u : arr)
+    {
+        sum += abs(u.first - u.second);
+        ans[cnt++] = sum;
+    }
+    for (ll i = cnt; i < n; ++i)
+        ans[i] = sum;
+    for (int i = 0; i < n; ++i)
+        cout << ans[i] << " ";
+    cout << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
+// Alhamdulillah
