@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define strim stringstream
+#define ll long long int
+#define inf INT_MAX
+#define mod %
+#define find_array_max *max_element(arr.begin(), arr.end());
+#define find_array_min *min_element(arr.begin(), arr.end());
+#define pii pair<int, int>
+#define negInf INT_MIN
+void hey_output()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
+using namespace std;
+const int N = 1e5 + 7;
+void go_on()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        string a, b;
+        cin >> a >> b;
+        if (a[a.size() - 1] == b[b.size() - 1])
+        {
+
+            if (a.size() == b.size())
+                cout << '=' << endl;
+
+            else if (a[a.size() - 1] == 'S')
+            {
+
+                (a.size() > b.size()) ? cout << '<' : cout << '>';
+                cout << endl;
+            }
+            else if (a.size() > b.size())
+                cout << '>' << endl;
+            else
+                cout << '<' << endl;
+        }
+        else
+        {
+            if (a[a.size() - 1] == 'L')
+                cout << '>' << endl;
+            else if (a[a.size() - 1] == 'M' and b[b.size() - 1] == 'S')
+                cout << '>' << endl;
+            else if (a[a.size() - 1] == 'M' and b[b.size() - 1] == 'L')
+                cout << '<' << endl;
+
+            else
+                cout << '<' << endl;
+        }
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+    go_on();
+
+    return 0;
+}
