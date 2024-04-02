@@ -1,0 +1,107 @@
+/*
+███╗░░██╗███████╗██╗░░░██╗███████╗██████╗░  ░██████╗░██╗██╗░░░██╗███████╗
+████╗░██║██╔════╝██║░░░██║██╔════╝██╔══██╗  ██╔════╝░██║██║░░░██║██╔════╝
+██╔██╗██║█████╗░░╚██╗░██╔╝█████╗░░██████╔╝  ██║░░██╗░██║╚██╗░██╔╝█████╗░░
+██║╚████║██╔══╝░░░╚████╔╝░██╔══╝░░██╔══██╗  ██║░░╚██╗██║░╚████╔╝░██╔══╝░░
+██║░╚███║███████╗░░╚██╔╝░░███████╗██║░░██║  ╚██████╔╝██║░░╚██╔╝░░███████╗
+╚═╝░░╚══╝╚══════╝░░░╚═╝░░░╚══════╝╚═╝░░╚═╝  ░╚═════╝░╚═╝░░░╚═╝░░░╚══════╝
+
+██╗░░░██╗██████╗░██╗██╗██╗
+██║░░░██║██╔══██╗██║██║██║
+██║░░░██║██████╔╝██║██║██║
+██║░░░██║██╔═══╝░╚═╝╚═╝╚═╝
+╚██████╔╝██║░░░░░██╗██╗██╗
+░╚═════╝░╚═╝░░░░░╚═╝╚═╝╚═╝
+
+
+ ░▒▓██████▓▒░░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓██████████████▓▒░░▒▓█▓▒░▒▓███████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓████████▓▒░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+*/
+// Bismillah
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<ll, ll>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+bool cmp(pii a, pii b)
+{
+    return a.first > b.first;
+}
+void solve()
+{
+    ll n;
+    cin >> n;
+    vector<pii> ski(n), movie(n), board(n);
+    for (int i = 0; i < n; ++i)
+    {
+        ll val;
+        cin >> val;
+        ski[i] = {val, i};
+    }
+    for (int i = 0; i < n; ++i)
+    {
+        ll val;
+        cin >> val;
+        movie[i] = {val, i};
+    }
+    for (int i = 0; i < n; ++i)
+    {
+        ll val;
+        cin >> val;
+        board[i] = {val, i};
+    }
+    sort(movie.begin(), movie.end() , cmp);
+    sort(ski.begin(), ski.end() , cmp);
+    sort(board.begin(), board.end() , cmp);
+    ll ans = negInf;
+    for (int i = 0; i < 3; ++i)
+    {
+        for (int j = 0; j < 3; ++j)
+        {
+            for (int k = 0; k < 3; ++k)
+            {
+                if (ski[i].second != movie[j].second and movie[j].second != board[k].second and ski[i].second != board[k].second)
+                {
+                    ans = max(ans, ski[i].first + movie[j].first + board[k].first);
+                }
+            }
+        }
+    }
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
+// Alhamdulillah
