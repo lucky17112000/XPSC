@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define strim stringstream
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+void hey_output()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
+using namespace std;
+const int N = 1e5 + 7;
+void solve()
+{
+    int n, m;
+    cin >> n >> m;
+    ll arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    ll prefix[n];
+    prefix[0] = arr[0];
+    for (int i = 1; i < n; i++)
+        prefix[i] = prefix[i - 1] + arr[i];
+    while (m--)
+    {
+        int l, r, c;
+        cin >> l >> r >> c;
+        l--;
+        r--;
+        ll total_sum = prefix[n - 1];
+        ll range_sum = 0;
+        if (l == 0)
+            range_sum = prefix[r] - 0;
+        else
+            range_sum = prefix[r] - prefix[l - 1];
+        total_sum -= range_sum;
+        ll rep = r - (l - 1);
+        total_sum += (rep * c);
+        (total_sum % 2 == 0) ? cout << "NO" << endl : cout << "YES" << endl;
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
