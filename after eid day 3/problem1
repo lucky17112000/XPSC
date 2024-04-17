@@ -1,0 +1,81 @@
+// Bismillah
+
+//problem : https://codeforces.com/edu/course/2/lesson/9/2/practice/contest/307093/problem/F
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void solve()
+{
+    ll n, s;
+    cin >> n >> s;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    multiset<ll> ml;
+    ll l = 0, r = 0, ans = 0;
+    while (r < n)
+    {
+        ml.insert(arr[r]);
+        ll mx, mn;
+        mn = *ml.begin();
+        mx = *ml.rbegin();
+        if (s >= mx - mn)
+        {
+            ans += (r - l + 1);
+        }
+        else
+        {
+            while (l < r)
+            {
+                mx = *ml.rbegin();
+                mn = *ml.begin();
+                if (mx - mn <= s)
+                    break;
+                auto er = ml.find(arr[l]);
+                ml.erase(er);
+                ++l;
+            }
+             mx = *ml.rbegin();
+                mn = *ml.begin();
+
+            if (mx - mn <= s)
+                ans += (r - l + 1);
+        }
+        ++r;
+    }
+    cout << ans << endl;
+
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
+// Alhamdulillah
