@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define strim stringstream
+#define ll long long int
+#define inf INT_MAX
+#define negInf INT_MIN
+#define mod %
+#define find_array_max *max_element(arr.begin(), arr.end());
+#define find_array_min *min_element(arr.begin(), arr.end());
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define psii pair<string, pair<int, int>>
+#define left_range(i, x, y) for (int i = x; i <= y; i++)
+#define right_range(i, x, y) for (int i = y; i >= x; i--)
+void hey_output()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
+using namespace std;
+const int N = 1e5 + 7;
+static void go_on()
+{
+    int a, b, c;
+    cin >> a >> b >> c;
+    int for_one = a - 1;
+    int for_two = abs(b - c) + (c - 1);
+    if (for_one < for_two)
+        cout << 1 << endl;
+    else if (for_one > for_two)
+        cout << 2 << endl;
+    else
+        cout << 3 << endl;
+}
+
+//problem link:https://codeforces.com/contest/1729/problem/A
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+    ll t = 1;
+    cin >> t;
+    while (t--)
+    {
+        go_on();
+    }
+
+    return 0;
+}
