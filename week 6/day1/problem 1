@@ -1,0 +1,87 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define strim stringstream
+#define ll long long int
+#define inf INT_MAX
+#define negInf INT_MIN
+#define mod %
+#define find_array_max *max_element(arr.begin(), arr.end());
+#define find_array_min *min_element(arr.begin(), arr.end());
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define psii pair<string, pair<int, int>>
+#define left_range(i, x, y) for (int i = x; i <= y; i++)
+#define right_range(i, x, y) for (int i = y; i >= x; i--)
+void hey_output()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+}
+using namespace std;
+const int N = 1e5 + 7;
+static void go_on()
+{
+//problem link: https://codeforces.com/contest/1729/problem/B
+
+
+    map<int, char> mp;
+    int k = 1;
+    for (char i = 'a'; i <= 'z'; ++i)
+    {
+        mp[k] = i;
+        ++k;
+    }
+
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        // cout << s << endl;
+        reverse(s.begin(), s.end());
+        // for (auto u : mp)
+        // cout << u.first << " " << u.second << endl;
+        // cout << k << endl;
+        string ans;
+        for (int i = 0; i < n; ++i)
+        {
+            if (s[i] != '0')
+            {
+                ans += mp[s[i] - '0'];
+            }
+            else if (s[i] == '0')
+            {
+                string tmp;
+                char f = s[i + 1];
+                char se = s[i + 2];
+                tmp += se;
+                tmp += f;
+                int num = stoi(tmp);
+                ans += mp[num];
+                i += 2;
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        cout << ans << endl;
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+    ll t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        go_on();
+    }
+
+    return 0;
+}
