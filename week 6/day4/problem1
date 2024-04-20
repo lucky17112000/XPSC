@@ -1,0 +1,70 @@
+// Bismillah
+//problem link:https://codeforces.com/contest/1791/problem/E
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void solve()
+{
+    ll n;
+    cin >> n;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    sort(arr.begin(), arr.end());
+    ll sum1 = 0;
+    ll sum2 = 0;
+    ll sum3 = 0;
+    ll sum4 = 0;
+    ll totalSum1 = 0;
+    ll totalSum2 = 0;
+    for (int i = 0; i < n - 1; ++i)
+    {
+        sum1 = arr[i];
+        sum2 = arr[i + 1];
+        sum3 = -arr[i];
+        sum4 = -arr[i + 1];
+        totalSum1 = sum1 + sum2;
+        totalSum2 = sum3 + sum4;
+        if (totalSum1 < totalSum2)
+        {
+            arr[i] = -arr[i];
+            arr[i + 1] = -arr[i + 1];
+        }
+    }
+    ll maximizeSum = 0;
+    for(int i = 0; i < n; ++i)maximizeSum+=arr[i];
+    cout << maximizeSum << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+     cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
+// Alhamdulillah
