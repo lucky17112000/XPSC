@@ -1,0 +1,59 @@
+// Bismillah
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+// problem link : https://codeforces.com/problemset/problem/1875/A
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll k, m, n;
+    cin >> k >> m >> n;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+
+    ll ans = m - 1;
+    m = 1;
+    ll i = 0;
+    while (i < n)
+    {
+        m += arr[i];
+        m = min(k, m);
+        ans += (m - 1);
+        m = 1;
+        ++i;
+    }
+    cout << ans + 1 << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
