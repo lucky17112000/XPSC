@@ -1,0 +1,93 @@
+// Bismillah
+
+/*When I wrote this code,
+only Allah and I knew what I did.Now... only Allah knows*/
+//problem link : https://codeforces.com/problemset/problem/550/B
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n, lowest, higest, atleast;
+    cin >> n >> lowest >> higest >> atleast;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+
+    ll cnt = 0;
+    for (int i = 0; i < (1 << n); ++i)
+    {
+        ll sum = 0;
+        ll cnt2 = 0;
+        ll mi = INT_MAX;
+        ll ma = INT_MIN;
+
+        for (int j = 0; j < n; ++j)
+        {
+            if ((i >> j) & 1)
+            {
+                mi = min(mi, arr[j]);
+                ma = max(ma, arr[j]);
+                sum += arr[j];
+                ++cnt2;
+            }
+            // ar[i].push_back(arr[j]);
+        }
+        if (cnt2 >= 2 and (ma - mi) >= atleast and sum >= lowest and sum <= higest)
+            ++cnt;
+    }
+    cout << cnt << endl;
+    // ll cnt = 0;
+
+    // for (int i = 0; i < (1 << n); ++i)
+    // {
+    //     // for(auto u : ar[i])cout << u << " ";
+    //     // cout << endl;
+    //     ll sum = 0;
+    //     ll mi = INT_MAX;
+    //     ll ma = INT_MIN;
+
+    //     if (2 <= ar[i].size())
+    //     {
+    //         for (auto u : ar[i])
+    //         {
+    //             mi = min(mi, u);
+    //             ma = max(ma, u);
+    //             sum += u;
+    //         }
+    //         if ((ma - mi) >= atleast and sum >= lowest and sum <= higest)
+    //             ++cnt;
+    //     }
+    // }
+    // cout << cnt << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
