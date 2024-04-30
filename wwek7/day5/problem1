@@ -1,0 +1,70 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+ll build(ll mid, vector<ll> &arr, ll n)
+{
+    ll cnt = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        if (mid >= arr[i])
+            cnt += (mid - arr[i]);
+    }
+    return cnt;
+}
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n, m;
+    cin >> n >> m;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    ll l = 1, r = 1e10;
+    ll ans = 0;
+    while (l <= r)
+    {
+        ll mid = (l + r) / 2;
+        if (m >= build(mid, arr, n))
+        {
+            ans = mid;
+            l = mid + 1;
+        }
+        else
+            r = mid - 1;
+    }
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
