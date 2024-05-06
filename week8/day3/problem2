@@ -1,0 +1,89 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n;
+    cin >> n;
+    vector<ll> arr1(n);
+    vector<ll> arr2(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr1[i];
+    for (int i = 0; i < n; ++i)
+        cin >> arr2[i];
+    bool flag = true;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr2[i] > arr1[i])
+        {
+            flag = false;
+            break;
+        }
+    }
+    if (!flag)
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    ll maxim = INT_MIN;
+    for (int i = 0; i < n; ++i)
+    {
+        maxim = max(arr1[i] - arr2[i], maxim);
+    }
+    // cout << maxim << endl;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr1[i] - maxim < 0)
+            arr1[i] = 0;
+        else
+            arr1[i] = arr1[i] - maxim;
+    }
+
+    // for(auto u : arr1)cout << u << " ";
+    bool isTrue = true;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr1[i] != arr2[i])
+        {
+            isTrue = false;
+            break;
+        }
+    }
+    if(isTrue)cout << "YES" << endl;
+    else cout << "NO" << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
