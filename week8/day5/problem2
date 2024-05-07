@@ -1,0 +1,90 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+ll inverse(vector<ll> &arr, int n)
+{
+    ll cnt = 0;
+    ll reserve = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr[i] == 1)
+            ++cnt;
+        else
+            reserve += cnt;
+    }
+    return reserve;
+}
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n;
+    cin >> n;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+
+    ll ans1 = inverse(arr, n);
+   
+    ll idx = -1;
+    for (int i = 0; i < n; ++i)
+    {
+        if (arr[i] == 0)
+        {
+            arr[i] = 1;
+            idx = i;
+            break;
+        }
+    }
+    ll ans2 = inverse(arr, n);
+    arr[idx] = 0;
+    for (int i = n - 1; i >= 0; --i)
+    {
+        if (arr[i] == 1)
+        {
+            arr[i] = 0;
+            break;
+        }
+    }
+    ll ans3 =  inverse(arr , n);
+    ll ultimate =  max({ans1 , ans2 , ans3});
+    cout << ultimate<< endl;
+
+
+
+
+    
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+     cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
