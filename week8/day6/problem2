@@ -1,0 +1,98 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    string s;
+    cin >> s;
+
+    stack<ll> upp;
+    stack<ll> low;
+    vector<char> ans(s.size(), '2');
+    // for (auto u : ans)
+    //     cout << u << " ";
+    ll track = 0;
+
+    for (int i = 0; i < s.size(); ++i)
+    {
+        if (s[i] == 'b')
+        {
+            if (!low.empty())
+            {
+                ll t = low.top();
+                ans[low.top()] = '2';
+                low.pop();
+                // ans.erase(ans.begin() + t);
+                // ans.insert(ans.begin() + t, '2');
+            }
+        }
+        else if (s[i] == 'B')
+        {
+            if (!upp.empty())
+            {
+                ll t = upp.top();
+                ans[upp.top()] = '2';
+                
+                upp.pop();
+                // ans.erase(ans.begin() + t);
+                // ans.insert(ans.begin() + t, '2');
+            }
+        }
+        else if (isupper(s[i]))
+        {
+            ans[i] = s[i];
+            ++track;
+            upp.push(i);
+        }
+        else if(islower(s[i]))
+        {
+            ans[i] = s[i];
+            ++track;
+            low.push(i);
+        }
+    }
+    string ult;
+    for(auto u : ans)
+       {
+         if(u != '2')ult+=u;
+       }
+
+        cout << ult << endl;
+
+    
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+     cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
