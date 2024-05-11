@@ -1,0 +1,61 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n;
+    cin >> n;
+    vector<ll> arr(n - 1);
+    for (int i = 0; i < n - 1; ++i)
+        cin >> arr[i];
+    vector<ll> ans(n, 0);
+    ans[n - 1] = arr[n - 2];
+    ll tak = ans[n - 2] = 1e9;
+    // cout << take << endl;
+    // for(auto u : ans)cout << u << " ";
+    
+    for (int i = n - 3; i >= 0; --i)
+    {
+        ans[i] = tak - arr[i];
+        tak-=arr[i];
+
+    }
+    for(auto u : ans )cout << u << " ";
+    cout << endl;
+
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
