@@ -1,0 +1,183 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    /*
+4x5
+00 01 02 03 04
+10 11 12 13 14
+20 21 22 23 24
+30 31 32 33 34
+*/
+    ll n, m;
+    cin >> n >> m;
+    char arr[n][m];
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+        {
+            cin >> arr[i][j];
+        }
+    }
+    /////////
+
+    char task1 = arr[0][0];
+    bool flag1 = false;
+    for (int i = 0; i < m; ++i)
+    {
+        if (arr[n - 1][i] == task1)
+        {
+            flag1 = true;
+        }
+    }
+    bool flag2 = false;
+    if (flag1)
+    {
+        for (int i = 0; i < n; ++i)
+        {
+            if (arr[i][m - 1] == task1)
+            {
+                flag2 = true;
+            }
+        }
+    }
+    if (flag1 and flag2)
+    {
+        cout << "YES" << endl;
+        return;
+    }
+    /////////////
+    /*
+4x5
+00 01 02 03 04
+10 11 12 13 14
+20 21 22 23 24
+30 31 32 33 34
+*/
+    char task2 = arr[n - 1][m - 1];
+    bool flag3 = false;
+    for (int i = 0; i < m; ++i)
+    {
+        if (arr[0][i] == task2)
+        {
+            flag3 = true;
+        }
+    }
+    bool flag4 = false;
+    if (flag3)
+    {
+        for (int i = 0; i < n; ++i)
+        {
+            if (arr[i][0] == task2)
+            {
+                flag4 = true;
+            }
+        }
+    }
+    if (flag4 and flag3)
+    {
+        cout << "YES" << endl;
+        return;
+    }
+
+    //////////
+    char task3 = arr[n - 1][0];
+    bool flag5 = false;
+    for (int i = 0; i < m; ++i)
+    {
+        if (arr[0][i] == task3)
+        {
+            flag5 = true;
+        }
+    }
+    bool flag6 = false;
+    if (flag5)
+    {
+        for (int i = 0; i < n; ++i)
+        {
+            if (arr[i][m - 1] == task3)
+                flag6 = true;
+        }
+    }
+    if (flag5 and flag6)
+    {
+        cout << "YES" << endl;
+        return;
+    }
+    ////////////////
+
+    /*
+4x5
+00 01 02 03 04
+10 11 12 13 14
+20 21 22 23 24
+30 31 32 33 34
+*/
+
+    char task4 = arr[0][m - 1];
+    bool flag7 = false;
+    for (int i = 0; i < m; ++i)
+    {
+        if (arr[n - 1][i] == task4)
+        {
+            flag7 = true;
+        }
+    }
+    bool flag8 = false;
+    if (flag7)
+    {
+        for (int i = 0; i < n; ++i)
+        {
+            if (arr[i][0] == task4)
+            {
+                flag8 = true;
+            }
+        }
+    }
+    if (flag7 and flag8)
+    {
+        cout << "YES" << endl;
+
+    }else{
+        cout << "NO" << endl;
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
