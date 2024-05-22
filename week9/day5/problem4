@@ -1,0 +1,77 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n;
+    cin >> n;
+    vector<ll> arr;
+    map<ll, ll> freq;
+    for (int i = 0; i < n; ++i)
+    {
+        ll val;
+        cin >> val;
+        if (n >= val)
+        {
+            arr.push_back(val);
+            ++freq[val];
+        }
+    }
+    vector<bool> chk(n + 5, true);
+    // for(auto u : arr)cout << u << " ";
+    map<ll, ll> mp;
+    for (int i = 0; i < arr.size(); ++i)
+    {
+        if (chk[arr[i]])
+        {
+            chk[arr[i]] = false;
+            for (int j = arr[i]; j <= n; j += arr[i])
+                mp[j] += freq[arr[i]];
+        }
+    }
+    // for(auto u : mp)cout << u.first << " " << u.second << endl;
+    ll ans = 0;
+    for (auto u : mp)
+    {
+        ans = max(ans, u.second);
+    }
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
