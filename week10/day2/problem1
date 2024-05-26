@@ -1,0 +1,87 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n;
+    cin >> n;
+    ll arr[2][n];
+    memset(arr, 0, sizeof(arr));
+    arr[0][0] = 2 * n;
+    arr[1][n - 1] = (2 * n) - 1;
+    ll ev = 2 * n - 2;
+    ll od = 2;
+
+    // for (int i = 0; i < 2; ++i)
+    // {
+    //     for (int j = 0; j < n; ++j)
+    //         cout << arr[i][j] << " ";
+    //     cout << endl;
+    // }
+
+    for (int j = 1; j < n; ++j)
+    {
+        if (j % 2 == 1)
+        {
+            arr[0][j] = od;
+            arr[1][j - 1] = od - 1;
+            od += 2;
+        }
+        else
+        {
+            arr[0][j] = ev;
+            arr[1][j - 1] = ev - 1;
+            ev -= 2;
+        }
+    }
+    for (int i = 0; i < 2; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+            cout << arr[i][j] << " ";
+        cout << endl;
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+     cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
