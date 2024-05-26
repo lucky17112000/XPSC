@@ -1,0 +1,113 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n, m;
+    cin >> n >> m;
+    ll ans = INT_MAX;
+    ll product = 1;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> arr[i];
+        product *= arr[i];
+    }
+
+    vector<ll> filter;
+    pbds<ll> pb;
+    for (int i = 0; i < n; ++i)
+        pb.insert(arr[i]);
+
+    for (auto u : pb)
+        filter.push_back(u);
+
+    for (auto u : filter)
+    {
+        ll cnt = 0;
+        while (true)
+        {
+            if (u % m == 0)
+                break;
+
+            if (u % m != 0)
+            {
+                ++cnt;
+                ++u;
+            }
+        }
+        ans = min(ans, cnt);
+    }
+    // cout << ans << endl;
+
+    if (m == 4)
+    {
+        for (int i = 0; i < n; ++i)
+        {
+            if (arr[i] % 2 == 1)
+            {
+                arr[i]++;
+                break;
+            }
+        }
+        ll upPro = 1;
+        for (auto u : arr)
+            upPro *= u;
+        if (product % 4 == 0)
+            ans = 0;
+
+        else if (upPro % 4 == 0)
+            // cout << 1 << endl;
+            ans = min(ans, 1 * 1LL);
+        else
+            ans = min(ans, 2 * 1LL);
+        // if(product >=2)ans = min(ans , 0*1LL);
+        // else if(product == 1)ans = min(ans , 1*1LL);
+        // else ans = min(ans , 2*1LL);
+    }
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
