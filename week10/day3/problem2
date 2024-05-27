@@ -1,0 +1,83 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n;
+    cin >> n;
+    vector<ll> ar(n);
+
+    set<ll> st;
+    for (int i = 0; i < n; ++i)
+    {
+        //  cin >> ar[i];
+        ll val;
+        cin >> val;
+        st.insert(val);
+    }
+
+    vector<ll> arr;
+    // arr.push_back(ar[0]);
+    for (auto &u : st)
+        arr.push_back(u);
+
+    // ll cnt = 0;
+    vector<ll> increaseAddition;
+    for (int i = 0; i < arr.size(); ++i)
+        increaseAddition.push_back(arr[i] + n);
+
+    ll cnt = 0;
+    ll idx = 0;
+    ll ans = 0;
+    for (int i = 0; i < arr.size(); ++i)
+    {
+        if (increaseAddition[idx] > arr[i])
+            ++cnt;
+
+        else
+        {
+            ans = max(ans, cnt);
+            ++idx;
+        }
+    }
+    ans = max(ans, cnt);
+    cout << cnt << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
