@@ -1,0 +1,124 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+//阿萨杜扎曼 阿拉明 
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<ll, ll>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n, m;
+    cin >> n >> m;
+    ll arr[n][m];
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+            cin >> arr[i][j];
+    }
+
+    ll ans = -1;
+    for (int i = 0; i < n; ++i)
+    {
+
+        for (int j = 0; j < m; ++j)
+        {
+            ll sum = 0;
+            map<pii, ll> mp;
+            // primary down
+            ll task1 = i, task2 = j;
+
+            while (task1 < n and task2 < m)
+            {
+                ++mp[{task1, task2}];
+                sum += arr[task1++][task2++];
+            }
+
+            // primary down
+
+            // primary up
+
+            task1 = i, task2 = j;
+
+            while (task1 >= 0 and task2 >= 0)
+            {
+                ++mp[{task1, task2}];
+                sum += arr[task1--][task2--];
+            }
+
+            // primary up
+
+            // secondry down
+            task1 = i, task2 = j;
+
+            while (task1 < n and task2 >= 0)
+            {
+                ++mp[{task1, task2}];
+                sum += arr[task1++][task2--];
+            }
+
+            // secondary dwoun
+
+            // secondary up
+            task1 = i, task2 = j;
+
+            while (task1 >= 0 and task2 < m)
+            {
+                ++mp[{task1, task2}];
+                sum += arr[task1--][task2++];
+            }
+
+            for (auto u : mp)
+            {
+                if (u.second > 1)
+                {
+                    // ll r = u.second - 1;
+                    sum -= arr[u.first.first][u.first.second] * (u.second - 1);
+                }
+            }
+
+            ans = max(ans, sum);
+        }
+    }
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
