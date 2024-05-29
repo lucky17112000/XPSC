@@ -1,0 +1,74 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+using namespace std;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    ll n, m;
+    cin >> n >> m;
+
+    vector<ll> helth(n);
+    vector<ll> cordi(n);
+    for (int i = 0; i < n; ++i)
+        cin >> helth[i];
+    for (int i = 0; i < n; ++i)
+        cin >> cordi[i];
+    vector<ll> pool(n + 1);
+    for (int i = 0; i < n; ++i)
+    {
+        pool[abs(cordi[i])] += helth[i];
+    }
+    ll bullet = 0;
+    bool flag = true;
+    ll se = 0;
+    for (int i = 1; i <= n; ++i)
+    {
+        se += pool[i];
+        bullet += m;
+        if (bullet < se)
+        {
+            flag = false;
+            break;
+        }
+    }
+    if (flag)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
