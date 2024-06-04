@@ -1,0 +1,125 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+// الله أكبر
+// 真主至大
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+auto chk = [&](vector<ll> &x, ll idx)
+{
+    vector<ll> reserveWithoutIdx;
+    for (int i = 0; i < x.size(); ++i)
+    {
+        if (i == idx)
+            continue; 
+        else
+            reserveWithoutIdx.push_back(x[i]);
+    }
+    vector<ll> gcdReserve;
+    for (int i = 0; i < reserveWithoutIdx.size() - 1; ++i)
+        gcdReserve.push_back(gcd(reserveWithoutIdx[i], reserveWithoutIdx[i + 1]));
+
+    if (is_sorted(gcdReserve.begin(), gcdReserve.end()))
+        return true;
+    
+        return false;
+};
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    // 阿萨杜扎曼 阿拉明
+    //  如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n;
+    cin >> n;
+    vector<ll> x(n);
+    for (auto i = 0; i < n; ++i)
+        cin >> x[i];
+    vector<ll> product;
+    for (int i = 0; i < n - 1; ++i)
+        product.push_back(gcd(x[i], x[i + 1]));
+
+    if (is_sorted(product.begin(), product.end()))
+    {
+        cout << "YES" << endl;
+        return;
+    }
+    ll idx = 0;
+    for (int i = 0; i < product.size() - 1; ++i)
+    {
+        if (product[i] > product[i + 1])
+        {
+            idx = i;
+            break;
+        }
+    }
+    if (chk(x, idx))
+    {
+        cout << "YES" << endl;
+        return;
+    }
+    if (n > idx + 1)
+    {
+        if (chk(x, idx + 1))
+        {
+            cout << "YES" << endl;
+            return;
+        }
+    }
+    else
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    if (n > idx + 2)
+    {
+        if (chk(x, idx + 2))
+        {
+            cout << "YES" << endl;
+            return;
+        }
+    }
+
+    cout << "NO" << endl;
+    // cout << x[idx] << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
