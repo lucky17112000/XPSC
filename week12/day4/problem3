@@ -1,0 +1,94 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b * log(a))
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+const int N = 1e5 + 7;
+
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    // 阿萨杜扎曼 阿拉明
+    //  如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n, m;
+    cin >> n >> m;
+    vector<vector<ll>> x(n, vector<ll>(m));
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+        {
+            cin >> x[i][j];
+        }
+    }
+
+    // Sort each row
+    for (int i = 0; i < n; ++i)
+    {
+        sort(x[i].begin(), x[i].end());
+    }
+
+    vector<vector<ll>> ans(n, vector<ll>(m));
+
+    for (int k = 0; k < m; ++k)
+    {
+        ll task = -1;
+        ll mini = inf;
+        for (int i = 0; i < n; ++i)
+        {
+            if (x[i][0] < mini)
+            {
+                task = i;
+                mini = x[i][0];
+            }
+        }
+
+        for (int l = 0; l < n; ++l)
+        {
+            if (task == l)
+            {
+                ans[l][k] = x[l][0];
+                x[l].erase(x[l].begin());
+            }
+            else
+            {
+                ans[l][k] = x[l].back();
+                x[l].pop_back();
+            }
+        }
+    }
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+        {
+            cout << ans[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
