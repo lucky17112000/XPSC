@@ -1,0 +1,86 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+// الله أكبر
+// 真主至大
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<char, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    // 阿萨杜扎曼 阿拉明
+    //  如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n, m;
+    cin >> n >> m;
+    string s;
+    cin >> s;
+    if (m >= n)
+    {
+        cout << " " << endl;
+        return;
+    }
+    vector<pii> x(s.size());
+    for (int i = 0; i < s.size(); ++i)
+        x[i] = {s[i], i};
+
+    sort(x.begin(), x.end());
+    ll u = m;
+    for (int i = 0; i < x.size(); ++i)
+    {
+        if (u == 0)
+            break;
+        x[i].first = '0';
+        --u;
+    }
+    // for (auto u : x)
+    //     cout << u.first << " " << u.second << endl;
+    vector<char> process(s.size() + 2, '0');
+    for (int i = 0; i < s.size(); ++i)
+        process[x[i].second] = x[i].first;
+
+    string ans;
+    for (int i = 0; i < process.size(); ++i)if(process[i] != '0')ans+=process[i]; 
+        
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
