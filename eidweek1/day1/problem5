@@ -1,0 +1,110 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+// الله أكبر
+// 真主至大
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah()
+{
+    // 阿萨杜扎曼 阿拉明
+    //  如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n, m;
+    cin >> n >> m;
+    vector<ll> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    vector<bitset<31>> x(n);
+    for (int i = 0; i < n; ++i)
+    {
+        bitset<31> y(arr[i]);
+        x[i] = y;
+    }
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     cout << x[i].to_string() << endl;
+    // }
+
+    for (int i = 30; i >= 0; --i)
+    {
+        ll cnt = 0;
+        for (int j = 0; j < n; ++j)
+        {
+            if (x[j][i] == 0)
+                ++cnt;
+        }
+        if (m >= cnt)
+        {
+            for (int l = 0; l < n; ++l)
+            {
+                if (x[l][i] == 0 and m > 0)
+                {
+                    x[l][i] = 1;
+                    --m;
+                }
+            }
+        }
+    }
+    // for (int i = 0; i < n; ++i)
+    // {
+    //     cout << x[i].to_string() << endl;
+    // }
+
+    vector<ll> carry;
+
+    for (int i = 0; i < n; ++i)
+    {
+        //  x[i].to_ulong() << endl;
+        carry.push_back(x[i].to_ullong());
+    }
+    ll task = 0;
+    if (!carry.empty())
+    {
+        task = carry[0];
+    }
+    for (int i = 1; i < carry.size(); ++i)
+        task &= carry[i];
+    cout << task << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+     cin >> t;
+    while (t--)
+    {
+        makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah();
+    }
+
+    return 0;
+}
+// Alhamdulillah
