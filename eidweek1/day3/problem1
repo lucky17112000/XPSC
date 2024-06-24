@@ -1,0 +1,144 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+// الله أكبر
+// 真主至大
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<char, ll>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void ____makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah____()
+{
+    // 阿萨杜扎曼 阿拉明
+    //  如果心中充满信念，无比坚定，就一定会看到胜利。
+    string s;
+    cin >> s;
+
+    set<char> st;
+    for (int i = 0; i < s.size(); ++i)
+        st.insert(s[i]);
+
+    if (st.size() == 2)
+    {
+        if (s[0] == 'L' and s[s.size()-1] == 'R')
+        {
+            cout << 2 << endl;
+            cout << s[0] << s[s.size() - 1] << endl;
+            return;
+        }
+        else if (s[0] == 'R' and s[s.size()] == 'L')
+        {
+            cout << 2 << endl;
+            cout << s[0] << s[s.size() - 1] << endl;
+            return;
+        }
+        else if (s[0] == 'D' and s[s.size() - 1] == 'U')
+        {
+            cout << 2 << endl;
+            cout << s[0] << s[s.size() - 1] << endl;
+            return;
+        }
+        else if(s[0] == 'U' and s[s.size() - 1] == 'D'){
+            cout << 2 << endl;
+            cout << s[0] << s[s.size() - 1] << endl;
+            return;
+
+        }else{
+            cout << 0 << endl;
+            return;
+        }
+    }
+
+    // vector<pii>x;
+
+    map<char, ll> mp;
+    for (int i = 0; i < s.size(); ++i)
+    {
+        ++mp[s[i]];
+    }
+    ll down = -1;
+    ll up = -1;
+    ll left = -1;
+    ll right = -1;
+
+    for (auto u : mp)
+    {
+        if (u.first == 'D' and u.second > 0)
+            down = u.second;
+        if (u.first == 'U' and u.second > 0)
+            up = u.second;
+        if (u.first == 'L' and u.second > 0)
+            left = u.second;
+        if (u.first == 'R' and u.second > 0)
+            right = u.second;
+    }
+    string ans;
+    ll task1 = min(down, up);
+    ll task2 = min(right, left);
+    for (int i = 1; i <= task1; ++i)
+        ans += 'D';
+    for (int i = 1; i <= task2; ++i)
+        ans += 'R';
+    for (int i = 1; i <= task1; ++i)
+        ans += 'U';
+    for (int i = 1; i <= task2; ++i)
+        ans += 'L';
+
+    set<char> st1;
+    for (int i = 0; i < ans.size(); ++i)
+        st1.insert(ans[i]);
+    if (st1.size() > 2)
+    {
+        cout << ans.size() << endl
+             << ans << endl;
+    }
+    else
+    {
+        cout << st1.size() << endl;
+        for (auto u : st1)
+            cout << u;
+        cout << endl;
+    }
+
+    
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        ____makeMeHappyReducePainGoAhedNeverGiveUPIWilBeSuccessInshaAllah____();
+    }
+
+    return 0;
+}
+// Alhamdulillah
