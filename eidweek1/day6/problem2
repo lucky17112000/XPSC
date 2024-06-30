@@ -1,0 +1,136 @@
+// Bismillah
+
+/*When I write code, my only request to Creator(Allah) is that he opens
+my eyes of knowledge. And may he be with me... And make everything
+easy for me..Amin...............*/
+// الله أكبر
+// 真主至大
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define endl '\n'
+#define ll long long int
+#define inf INT_MAX
+#define pii pair<int, int>
+#define negInf INT_MIN
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a * b) / gcd(a, b))
+#define __pow(a, b) exp(b *log(a))
+// void hey_output()
+// {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.txt", "r", stdin);
+//     freopen("output.txt", "w", stdout);
+// #endif
+// }
+
+using namespace __gnu_pbds;
+using namespace std;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+const int N = 1e5 + 7;
+void ____Have_A_Relax_See_You_Not_For_Mind___()
+{
+    // 阿萨杜扎曼 阿拉明
+    //  如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    vector<ll> idx;
+    for (int i = 0; i < n; ++i)
+    {
+        if (s[i] == '1')
+            idx.push_back(i + 1);
+    }
+
+    if (idx.size() == 0)
+    {
+        ll cnt = 1;
+        for (int i = (k + 1); i < n; i += (k + 1))
+            ++cnt;
+        cout << cnt << endl;
+        return;
+    }
+    if (idx.size() == 1)
+    {
+        ll idxone = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (s[i] == '1')
+                idxone = i;
+        }
+        ll cnt = 0;
+
+        for (int i = idxone + k + 1; i < n; i += (k + 1))
+            ++cnt;
+        string ki = s;
+        reverse(ki.begin(), ki.end());
+        idxone = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (ki[i] == '1')
+                idxone = i;
+        }
+        for (int i = idxone + k + 1; i < n; i += (k + 1))
+            ++cnt;
+        cout << cnt << endl;
+        return;
+    }
+
+    ll ans = 0;
+
+    for (int i = 1; i < idx.size(); ++i)
+    {
+        ll task1 = idx[i - 1];
+        ll task2 = idx[i];
+        ll save = task2 - task1 - 1;
+        // ll save2 = (save / (k + 1));
+
+        // --save2;
+        ll save2 = ((save - k) / (k + 1));
+
+        ans += save2;
+    }
+
+    ll firstOne = 0;
+    ll lastOne = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        if (s[i] == '1')
+            lastOne = i;
+    }
+
+    for (int i = lastOne + k + 1; i < n; i += (k + 1))
+        ++ans;
+    string st = s;
+    reverse(st.begin(), st.end());
+    for (int i = 0; i < n; ++i)
+    {
+        if (st[i] == '1')
+            firstOne = i;
+    }
+
+    for (int i = firstOne + k + 1; i < n; i += (k + 1))
+        ++ans;
+
+    cout << ans << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    // hey_output();
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        ____Have_A_Relax_See_You_Not_For_Mind___();
+    }
+
+    return 0;
+}
+// Alhamdulillah
