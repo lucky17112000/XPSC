@@ -1,0 +1,62 @@
+// Bismillah
+#include <bits/stdc++.h>
+#define ll long long int
+#define endl '\n'
+using namespace std;
+
+/***********************************************************
+ * Writer: Asaduzzaman Alamin
+ * Date: 12-07-2024
+ * Time : 15:54:20
+ * Problem is -> C_Thermostat.cpp
+ ************************************************************/
+void ____Have_A_Relax_See_You_Not_For_Mind___()
+{
+    // 阿萨杜扎曼 阿拉明
+    // 如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll l, r, x, a, b;
+    cin >> l >> r >> x >> a >> b;
+    if (a == b)
+    {
+        cout << 0 << endl;
+        return;
+    }
+    if (abs(a - b) >= x)
+    {
+        cout << 1 << endl;
+        return;
+    }
+
+    if (b > a)
+    {
+        if (r >= b + x or a - x >= l)
+            cout << 2 << endl;
+        else if (r >= a + x and b - l >= x)
+            cout << 3 << endl;
+        else
+            cout << -1 << endl;
+    }
+    else
+    {
+        if (b - x >= l or r >= a + x)
+            cout << 2 << endl;
+        else if (a - x >= l and r - b >= x)
+            cout << 3 << endl;
+        else
+            cout << -1 << endl;
+    }
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll tcs = 1;
+    
+    cin >> tcs;
+    for (ll i = 1; i <= tcs; ++i)
+        ____Have_A_Relax_See_You_Not_For_Mind___();
+
+    return 0;
+    // ********Alhamdulillah********
+}
