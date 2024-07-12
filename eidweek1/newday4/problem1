@@ -1,0 +1,75 @@
+// Bismillah
+#include <bits/stdc++.h>
+#define ll long long int
+#define endl '\n'
+using namespace std;
+
+/***********************************************************
+ * Writer: Asaduzzaman Alamin
+ * Date: 12-07-2024
+ * Time : 20:06:26
+ * Problem is -> C_Flower_City_Fence.cpp
+ ************************************************************/
+void ____Have_A_Relax_See_You_Not_For_Mind___()
+{
+    // 如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n;
+    cin >> n;
+    vector<ll> x(n + 2);
+    ll sz = INT_MIN;
+
+    for (int i = 1; i <= n; ++i)
+    {
+
+        cin >> x[i];
+        sz = max(sz, x[i]);
+    }
+    if (x[1] != n)
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    vector<ll> y(sz + 5, 0);
+
+    for (int i = 1; i <= n; ++i)
+    {
+        ++y[x[i]];
+    }
+    if (n == 1)
+    {
+        if (x[1] == 1)
+        {
+            cout << "YES" << endl;
+        }
+        else
+            cout << "NO" << endl;
+        return;
+    }
+
+    for (int i = n - 1; i >= 0; --i)
+        y[i] += (y[i + 1]);
+
+    bool isSymatric = true;
+    for (int i = 1; i <= n; ++i)
+    {
+        if (x[i] != y[i])
+        {
+            isSymatric = false;
+            break;
+        }
+    }
+    cout << ((isSymatric) ? "YES" : "NO") << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll tcs = 1;
+    cin >> tcs;
+    for (ll i = 1; i <= tcs; ++i)
+        ____Have_A_Relax_See_You_Not_For_Mind___();
+
+    return 0;
+    // ********Alhamdulillah********
+}
