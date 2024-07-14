@@ -1,0 +1,46 @@
+// Bismillah
+#include <bits/stdc++.h>
+#define ll long long int
+#define endl '\n'
+using namespace std;
+
+/***********************************************************
+ * Writer: Asaduzzaman Alamin
+ * Date: 14-07-2024
+ * Time : 18:20:22
+ * Problem is -> B_Appending_Mex.cpp
+ ************************************************************/
+void ____Have_A_Relax_See_You_Not_For_Mind___()
+{
+    // 如果心中充满信念，无比坚定，就一定会看到胜利。
+    ll n;
+    cin >> n;
+    vector<ll> x(n);
+    for (int i = 0; i < n; ++i)
+        cin >> x[i];
+    ll mx = -1;
+    for (int i = 0; i < n; ++i)
+    {
+        if (x[i] > mx + 1)
+        {
+            cout << i + 1 << endl;
+            return;
+        }
+        else
+            mx = max(mx, x[i]);
+    }
+    cout << -1 << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll tcs = 1;
+    // cin >> tcs;
+    for (ll i = 1; i <= tcs; ++i)
+        ____Have_A_Relax_See_You_Not_For_Mind___();
+
+    return 0;
+    // ********Alhamdulillah********
+}
