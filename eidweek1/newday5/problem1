@@ -1,0 +1,49 @@
+// Bismillah
+#include <bits/stdc++.h>
+#define ll long long int
+#define endl '\n'
+using namespace std;
+
+/***********************************************************
+ * Writer: Asaduzzaman Alamin
+ * Date: 14-07-2024
+ * Time : 06:53:30
+ * Problem is -> B_Game_with_string.cpp
+ ************************************************************/
+void ____Have_A_Relax_See_You_Not_For_Mind___()
+{
+    // 如果心中充满信念，无比坚定，就一定会看到胜利。
+    string s;
+    cin >> s;
+    ll cnt = 0;
+    stack<char> st;
+    for (int i = 0; i < s.size(); ++i)
+    {
+        if (!st.empty())
+        {
+            if (st.top() == s[i])
+            {
+                ++cnt;
+                st.pop();
+            }
+            else
+                st.push(s[i]);
+        }
+        else if (st.empty())
+            st.push(s[i]);
+    }
+    cout << ((cnt % 2) ? "Yes" : "No") << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll tcs = 1;
+    // cin >> tcs;
+    for (ll i = 1; i <= tcs; ++i)
+        ____Have_A_Relax_See_You_Not_For_Mind___();
+
+    return 0;
+    // ********Alhamdulillah********
+}
